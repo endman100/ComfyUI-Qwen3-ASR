@@ -156,7 +156,7 @@ def _load_model(model_name, device, dtype_name, max_new_tokens):
         from qwen_asr import Qwen3ASRModel
     except ImportError as exc:
         raise ImportError(
-            "ComfyUI-Qwen3-ASR-Repack requires qwen-asr. "
+            "ComfyUI-Qwen3-ASR requires qwen-asr. "
             "Install requirements.txt in the same Python environment used by ComfyUI, "
             "then restart ComfyUI."
         ) from exc
@@ -216,7 +216,7 @@ def _audio_to_temp_wav(audio):
         import soundfile as sf
     except ImportError as exc:
         raise ImportError(
-            "ComfyUI-Qwen3-ASR-Repack requires soundfile for AUDIO inputs."
+            "ComfyUI-Qwen3-ASR requires soundfile for AUDIO inputs."
         ) from exc
 
     waveform = audio["waveform"]
@@ -225,7 +225,7 @@ def _audio_to_temp_wav(audio):
 
     handle = tempfile.NamedTemporaryFile(
         suffix=".wav",
-        prefix="qwen3_asr_repack_",
+        prefix="qwen3_asr_",
         delete=False,
     )
     handle.close()
@@ -241,7 +241,7 @@ def _ui_result(transcript, language, metadata_json):
     }
 
 
-class Qwen3ASRRepackTranscribeFile:
+class Qwen3ASRTranscribeFile:
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -319,7 +319,7 @@ class Qwen3ASRRepackTranscribeFile:
         return True
 
 
-class Qwen3ASRRepackTranscribeAudio:
+class Qwen3ASRTranscribeAudio:
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -386,11 +386,11 @@ class Qwen3ASRRepackTranscribeAudio:
 
 
 NODE_CLASS_MAPPINGS = {
-    "Qwen3ASRRepackTranscribeFile": Qwen3ASRRepackTranscribeFile,
-    "Qwen3ASRRepackTranscribeAudio": Qwen3ASRRepackTranscribeAudio,
+    "Qwen3ASRTranscribeFile": Qwen3ASRTranscribeFile,
+    "Qwen3ASRTranscribeAudio": Qwen3ASRTranscribeAudio,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Qwen3ASRRepackTranscribeFile": "Qwen3 ASR Repack - Transcribe File",
-    "Qwen3ASRRepackTranscribeAudio": "Qwen3 ASR Repack - Transcribe Audio",
+    "Qwen3ASRTranscribeFile": "Qwen3 ASR - Transcribe File",
+    "Qwen3ASRTranscribeAudio": "Qwen3 ASR - Transcribe Audio",
 }

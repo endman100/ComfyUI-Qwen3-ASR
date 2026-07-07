@@ -1,4 +1,4 @@
-# ComfyUI-Qwen3-ASR-Repack
+# ComfyUI-Qwen3-ASR
 
 ComfyUI custom nodes for Qwen3-ASR transcription.
 
@@ -8,9 +8,9 @@ also available from the model selector.
 
 ## Nodes
 
-- `Qwen3 ASR Repack - Transcribe File`
+- `Qwen3 ASR - Transcribe File`
   - Selects an audio/video file from ComfyUI's `input` directory.
-- `Qwen3 ASR Repack - Transcribe Audio`
+- `Qwen3 ASR - Transcribe Audio`
   - Accepts a standard ComfyUI `AUDIO` input.
 
 Use the `model_name` dropdown for known models, or set `custom_model_id` to a
@@ -32,7 +32,7 @@ Word-level timestamps are not exposed in this initial ASR node because
 Install dependencies in the same Python environment used by ComfyUI:
 
 ```bash
-pip install -r ComfyUI/custom_nodes/ComfyUI-Qwen3-ASR-Repack/requirements.txt
+pip install -r ComfyUI/custom_nodes/ComfyUI-Qwen3-ASR/requirements.txt
 ```
 
 Restart ComfyUI after installation.
@@ -40,14 +40,14 @@ Restart ComfyUI after installation.
 The node installs `qwen-asr` from the compatibility fork:
 
 ```text
-git+https://github.com/endman100/Qwen3-ASR.git@compat-relaxed-deps#egg=qwen-asr
+git+https://github.com/endman100/Qwen3-ASR.git#egg=qwen-asr
 ```
 
 The fork intentionally uses lower-bound-only runtime dependencies so newer
 Qwen3-ASR runtime/model support can be picked up with:
 
 ```bash
-pip install -U -r ComfyUI/custom_nodes/ComfyUI-Qwen3-ASR-Repack/requirements.txt
+pip install -U -r ComfyUI/custom_nodes/ComfyUI-Qwen3-ASR/requirements.txt
 ```
 
 When newer dependency versions break compatibility, fix the fork and reinstall
