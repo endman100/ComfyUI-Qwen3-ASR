@@ -1,0 +1,4 @@
+# Install qwen-asr from the compatibility fork where exact pins are relaxed
+# to lower-bound-only latest-compat ranges.
+-c constraints.txt
+git+https://github.com/endman100/Qwen3-ASR.git@compat-relaxed-deps#egg=qwen-asr
