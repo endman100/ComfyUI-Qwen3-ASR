@@ -1,0 +1,18 @@
+[project]
+name = "comfyui-qwen3-asr-endman100"
+version = "0.1.0"
+description = "ComfyUI nodes for local Qwen3-ASR transcription."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "qwen-asr @ git+https://github.com/endman100/Qwen3-ASR.git",
+]
+
+[project.urls]
+Repository = "https://github.com/endman100/ComfyUI-Qwen3-ASR"
+Documentation = "https://github.com/endman100/ComfyUI-Qwen3-ASR#readme"
+"Bug Tracker" = "https://github.com/endman100/ComfyUI-Qwen3-ASR/issues"
+
+[tool.comfy]
+PublisherId = "endman100"
+DisplayName = "Qwen3 ASR (endman100)"
